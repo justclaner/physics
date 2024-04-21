@@ -15,3 +15,7 @@ body {
 td.box {
  padding-right: 30px;
 }
+
+td {
+  white-space: nowrap;
+}
