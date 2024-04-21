@@ -8,17 +8,21 @@
 </head>
 <body>
     <h1>AP Physics 1 Calculators</h1>
-    <p>Fill in the values that you have. The rest will be calculated, if possible, up to six significant figures. For the AP exam, stick to 2-3 significant figures for final answers.</p>
+    <p>Fill in the values that you have. The rest will be calculated, if possible, up to six significant figures. 
+        <br>For the AP exam, stick to 2-3 significant figures for final answers.
+    <br>Signs matter (they show direction). Time is never negative. If it is, you did something wrong.</p>
     <h2>Kinematics</h2>
 
+    <!-- formula 1 -->
     <h3>Constant Velocity</h3>
 
         <table style="display:inline">
-            <td>Formula: v =</td>
-            <td> <div style="float:left">
-                <div style="border-bottom:1px solid;font-size:small;text-align:center;">x<sup>2</sup> + 3x + 5</div>
-                <div style="font-size:small;text-align:center;">2x</div>
-              </div></td>
+            <td style="font-size:16px">Formula: v =</td>
+            <td><div style="float:left" >
+                <div style="border-bottom:1px solid;font-size:16px;text-align:center">&Delta;x</div>
+                <div style="font-size:16px;text-align:center;">t</div> 
+            </div></td>
+            
     </table>
     
     <p>Velocity: <input type="number" id="velocity1"> m/s</p>
@@ -26,64 +30,48 @@
     <p>Time: <input type="number" id="time1"> s</p>
     <button onclick="velocity1()">Enter</button>
 
-    <br><br><br><br><br>
-    <p>Constant Acceleration for all below:</p>
-    <br>
-
+    <br><br><br>
+    
+    <h3>Constant Acceleration</h3>
+    <p>If given displacement, set final position to the displacement value and initial position to zero.</p>
+    <table>
+    <td class="box">
+    <!--Formula 2-->
     <h3>Unknown Displacement</h3>   
     <p>Formula: v = v<sub>o</sub> + at</p>
-    <p>Velocity: <input type="number" id="velocity2"> m/s</p>
+    <p>Final Velocity: <input type="number" id="velocity2"> m/s</p>
     <p>Initial Velocity: <input type="number" id="iVelocity1"> m/s</p>
     <p>Acceleration: <input type="number" id="acceleration1"> m/s<sup>2</sup></p>
-    <p>Time: <input type="number" id="time1"> s</p>
-    <button onclick="velocity2()">Enter</button>
+    <p>Time: <input type="number" id="time2"> s</p>
+    <button onclick="kinematic1()">Enter</button>
+
+</td><td class="box">
+    <!--Formula 3-->
+    <h3>Unknown Final Velocity</h3>  
+    <table style="display:inline">
+        <td style="font-size:16px">Formula: x = x<sub>o</sub> + v<sub>o</sub>t + </td>
+        <td><div style="float:left" >
+            <div style="border-bottom:1px solid;font-size:16px;text-align:center">at<sup>2</sup></div>
+            <div style="font-size:16px;text-align:center;">2</div> 
+        </div></td> 
+        </table>
+    <p>Final Position: <input type="number" id="position1"> m</p>
+    <p>Initial Position: <input type="number" id="iPosition1"> m</p>
+    <p>Initial Velocity: <input type="number" id="iVelocity2"> m/s</p>
+    <p>Acceleration: <input type="number" id="acceleration2"> m/s<sup>2</sup></p>
+    <p>Time: <input type="number" id="time3"> s</p>
+    <button onclick="kinematic2()">Enter</button>
+</td>
+</table>
 
     <h2>Dynamics</h2>
-    <h3>Newton's Second Law <b>(F = ma)</b></h3>
+    <h3>Newton's Second Law </h3>
+    <p>Formula: F = ma</p>
     <p>Force: <input type="number" id="force1"> N</p>
     <p>Mass: <input type="number" id="mass1"> kg</p>
-    <p>Acceleration: <input type="number" id="acceleration2"> m/s<sup>2</sup> </p>
+    <p>Acceleration: <input type="number" id="acceleration7"> m/s<sup>2</sup> </p> <!--change this acceleration id later-->
     <button onclick="force1()">Enter</button>
 
-    <script>
-        function velocity1() {
-            var v = document.getElementById("velocity1").value;
-            var x = document.getElementById("displacement1").value;
-            var t = document.getElementById("time1").value;
-
-            if (v != "" && x != "" && t != "") {
-                alert("Make sure only two fields are inputted for this.")
-            } else if (v != "" && x != "") {
-                document.getElementById("time1").value = (x/v).toPrecision(6);
-            } else if (v != "" && t != "") {
-                document.getElementById("displacement1").value = (v*t).toPrecision(6);
-            } else if (x != "" && t != "") {
-                document.getElementById("velocity1").value = (x/t).toPrecision(6);
-            } else {
-                alert("Make sure only two fields are inputted for this.")
-            }
-        }
-
-
-        function force1() {
-            var f = document.getElementById("force1").value;
-            var m = document.getElementById("mass1").value;
-            var a = document.getElementById("acceleration2").value;
-
-            if (f != "" && m != "" && a != "") {
-                alert("Make sure only two fields are inputted for this.")
-            } else if (f != "" && m != "") {
-                document.getElementById("acceleration2").value = (f/m).toPrecision(6);
-            } else if (f != "" && a != "") {
-                document.getElementById("mass1").value = (f/a).toPrecision(6);
-            } else if (m != "" && a != "") {
-                document.getElementById("force1").value = (m*a).toPrecision(6);
-            } else {
-                alert("Make sure only two fields are inputted for this.")
-            }
-            console.log(f + " " + m + " " + a);
-            console.log(f == "");
-        }
-    </script>
+    <script src="app1.js"></script>
 </body>
 </html>

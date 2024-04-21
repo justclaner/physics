@@ -4,7 +4,7 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 input {
-    width: 100px;
+    width: 60px;
 }
 
 body {
@@ -12,3 +12,6 @@ body {
     margin-right: 20px;
 }
 
+td.box {
+ padding-right: 30px;
+}
