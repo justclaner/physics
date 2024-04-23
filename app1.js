@@ -16,7 +16,7 @@ function velocity1() {
     }
 }
 
-//unknown displacement
+//unrelated displacement
 function kinematic1() {
 var v = document.getElementById("velocity2").value;
 var vi = document.getElementById("iVelocity1").value;
@@ -38,7 +38,7 @@ if (v != "" && vi != "" && a != "" && t != "") {
 }
 }
 
-//unknown final velocity
+//unrelated final velocity
 function kinematic2() {
     var x = document.getElementById("position1").value;
     var xi = document.getElementById("iPosition1").value;
@@ -70,6 +70,31 @@ function kinematic2() {
         alert("Make sure exactly four fields are inputted for this.")
     }
     }
+
+//unrelated time
+function kinematic3() {
+    var v = document.getElementById("velocity3").value;
+    var vi = document.getElementById("iVelocity3").value;
+    var a = document.getElementById("acceleration3").value;
+    var x = document.getElementById("position2").value;
+    var xi = document.getElementById("iPosition2").value;
+
+    if (v != "" && vi != "" && a != "" && x != "" && xi != "") {
+        alert("Make sure exactly four fields are inputted for this.");
+    } else if (vi != "" && a != "" && x != "" && xi != "") {//missing v
+        document.getElementById("velocity3").value = Math.sqrt(Math.pow(vi,2) + 2*a*(x - xi));
+    } else if (v != "" && a != "" && x != "" && xi != "") { //missing vi
+        document.getElementById("iVelocity3").value = Math.sqrt(Math.pow(v,2) - 2*a*(x - xi));
+    } else if (v != "" && vi != "" && x != "" && xi != "") { //missing a
+        document.getElementById("acceleration3").value = ((Math.pow(v,2) - Math.pow(vi,2))/(2*(x - xi)));
+    } else if (v != "" && vi != "" && a != "" && xi != "") { //missing x
+        document.getElementById("position2").value = (xi + (Math.pow(v,2) - Math.pow(vi,2))/(2*a));
+    } else if (v != "" && vi != "" && a != "" && x != "") { //missing xi
+        document.getElementById("iPosition2").value = (x - ((Math.pow(v,2) - Math.pow(vi,2))/(2*a)));
+    } else {
+        alert("Make sure exactly four fields are inputted for this.");
+    }
+}
 
 function force1() {
     var f = document.getElementById("force1").value;

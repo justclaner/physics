@@ -12,11 +12,24 @@ body {
     margin-right: 20px;
 }
 
+td {
+  white-space: nowrap;
+}
+
+
 td.box {
  padding-right: 30px;
  width: 300px;
 }
 
-td {
+.nobr {
   white-space: nowrap;
+}
+.supsub {
+  display: inline-block;
+  margin: -9em 0;
+  vertical-align: -0.35em;
+  line-height: 0.8em;
+  font-size: 80%;
+  text-align: left;
 }

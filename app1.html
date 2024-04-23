@@ -35,9 +35,10 @@
     <h3>Constant Acceleration</h3>
     <p>If given displacement, set final position to the displacement value and initial position to zero.</p>
     <table>
+        <tr>
     <td class="box">
     <!--Formula 2-->
-    <h3>Unknown Displacement</h3>   
+    <h3>Displacement Unrelated</h3>   
     <p>Formula: v = v<sub>o</sub> + at</p>
     <p>Final Velocity: <input type="number" id="velocity2"> m/s</p>
     <p>Initial Velocity: <input type="number" id="iVelocity1"> m/s</p>
@@ -47,9 +48,9 @@
 
 </td><td class="box">
     <!--Formula 3-->
-    <h3>Unknown Final Velocity</h3>  
+    <h3>Final Velocity Unrelated</h3>  
     <table style="display:inline">
-        <td style="font-size:16px">Formula: x = x<sub>o</sub> + v<sub>o</sub>t + </td>
+        <td style="font-size:16px">Formula: x = x<sub>o</sub> + v<sub>o</sub>t +</td>
         <td><div style="float:left" >
             <div style="border-bottom:1px solid;font-size:16px;text-align:center">at<sup>2</sup></div>
             <div style="font-size:16px;text-align:center;">2</div> 
@@ -61,9 +62,22 @@
     <p>Acceleration: <input type="number" id="acceleration2"> m/s<sup>2</sup></p>
     <p>Time: <input type="number" id="time3"> s</p>
     <button onclick="kinematic2()">Enter</button>
+
+</td><td class="box">
+    <!--Formula 4-->
+    <h3>Time Unrelated</h3>
+    <table style="display:inline">
+        <td style="font-size:16px">Formula: v<sup>2</sup> =  <span class="nobr">v<span class="supsub">2<br>o</span></span> + 2a(x - x<sub>o</sub>)</td>
+        </table>
+        <p>Final Velocity: <input type="number" id="velocity3"> m/s</p>
+        <p>Initial Velocity: <input type="number" id="iVelocity3"> m/s</p>
+        <p>Acceleration: <input type="number" id="acceleration3"> m/s<sup>2</sup></p>
+        <p>Final Position: <input type="number" id="position2"> m</p>
+        <p>Initial Position: <input type="number" id="iPosition2"> m</p>
+        <button onclick="kinematic3()">Enter</button>
 </td>
 </table>
-
+<br>
     <h2>Dynamics</h2>
     <h3>Newton's Second Law </h3>
     <p>Formula: F = ma</p>
