@@ -82,15 +82,15 @@ function kinematic3() {
     if (v != "" && vi != "" && a != "" && x != "" && xi != "") {
         alert("Make sure exactly four fields are inputted for this.");
     } else if (vi != "" && a != "" && x != "" && xi != "") {//missing v
-        document.getElementById("velocity3").value = Math.sqrt(Math.pow(vi,2) + 2*a*(x - xi));
+        document.getElementById("velocity3").value = Math.sqrt(Math.pow(vi,2) + 2*a*(x - xi)).toPrecision(6);
     } else if (v != "" && a != "" && x != "" && xi != "") { //missing vi
-        document.getElementById("iVelocity3").value = Math.sqrt(Math.pow(v,2) - 2*a*(x - xi));
+        document.getElementById("iVelocity3").value = Math.sqrt(Math.pow(v,2) - 2*a*(x - xi)).toPrecision(6);
     } else if (v != "" && vi != "" && x != "" && xi != "") { //missing a
-        document.getElementById("acceleration3").value = ((Math.pow(v,2) - Math.pow(vi,2))/(2*(x - xi)));
+        document.getElementById("acceleration3").value = ((Math.pow(v,2) - Math.pow(vi,2))/(2*(x - xi))).toPrecision(6);
     } else if (v != "" && vi != "" && a != "" && xi != "") { //missing x
-        document.getElementById("position2").value = (xi + (Math.pow(v,2) - Math.pow(vi,2))/(2*a));
+        document.getElementById("position2").value = (xi + (Math.pow(v,2) - Math.pow(vi,2))/(2*a)).toPrecision(6);
     } else if (v != "" && vi != "" && a != "" && x != "") { //missing xi
-        document.getElementById("iPosition2").value = (x - ((Math.pow(v,2) - Math.pow(vi,2))/(2*a)));
+        document.getElementById("iPosition2").value = (x - ((Math.pow(v,2) - Math.pow(vi,2))/(2*a))).toPrecision(6);
     } else {
         alert("Make sure exactly four fields are inputted for this.");
     }
