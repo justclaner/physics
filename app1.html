@@ -10,11 +10,12 @@
     <h1>AP Physics 1 Calculators</h1>
     <p>Fill in the values that you have. The rest will be calculated, if possible, up to six significant figures. 
         <br>For the AP exam, stick to 2-3 significant figures for final answers.
-    <br>Signs matter (they show direction). Time is never negative. If it is, you did something wrong.</p>
+    <br>Signs matter (they show direction). If the answer seems off or time is negative, your inputs create an impossible situation.</p>
     <h2>Kinematics</h2>
 
-    <!-- formula 1 -->
+    <!-- Formula 1 -->
     <h3>Constant Velocity</h3>
+    <p>Speed is velocity without direction, and distance is displacement without direction. The same formula applies.</p>
 
         <table style="display:inline">
             <td style="font-size:16px">Formula: v =</td>
@@ -33,9 +34,8 @@
     <br><br><br>
     
     <h3>Constant Acceleration</h3>
-    <p>If given displacement, set final position to the displacement value and initial position to zero.</p>
+    <p>If given displacement &Delta;x, set final position to the displacement value and initial position to zero.</p>
     <table>
-        <tr>
     <td class="box">
     <!--Formula 2-->
     <h3>Displacement Unrelated</h3>   
@@ -75,9 +75,60 @@
         <p>Final Position: <input type="number" id="position2"> m</p>
         <p>Initial Position: <input type="number" id="iPosition2"> m</p>
         <button onclick="kinematic3()">Enter</button>
+</td> <td class="box">
+    <!--Formula 5-->
+    <h3>Acceleration Unrelated</h3>
+    <table style="display:inline">
+        <td style="font-size:16px">Formula: (x - x<sub>o</sub>) =</td>
+        <td><div style="float:left" >
+            <div style="border-bottom:1px solid;font-size:16px;text-align:center">v + v<sub>o</sub></div>
+            <div style="font-size:16px;text-align:center;">2</div> 
+        </div></td> 
+        <td>t</td>
+        </table>
+        <p>Final Position: <input type="number" id="position3"> m</p>
+        <p>Initial Position: <input type="number" id="iPosition3"> m</p>
+        <p>Final Velocity: <input type="number" id="velocity4"> m/s</p>
+        <p>Initial Velocity: <input type="number" id="iVelocity4"> m/s</p>
+        <p>Time: <input type="number" id="time4"> s</p>
+        <button onclick="kinematic4()">Enter</button>
+</td><td class="box">
+    <!--Formula 6-->
+    <h3>Initial Velocity Unrelated</h3>  
+    <table style="display:inline">
+        <td style="font-size:16px">Formula: x = x<sub>o</sub> + vt -</td>
+        <td><div style="float:left" >
+            <div style="border-bottom:1px solid;font-size:16px;text-align:center">at<sup>2</sup></div>
+            <div style="font-size:16px;text-align:center;">2</div> 
+        </div></td> 
+        </table>
+    <p>Final Position: <input type="number" id="position4"> m</p>
+    <p>Initial Position: <input type="number" id="iPosition4"> m</p>
+    <p>Final Velocity: <input type="number" id="velocity5"> m/s</p>
+    <p>Acceleration: <input type="number" id="acceleration4"> m/s<sup>2</sup></p>
+    <p>Time: <input type="number" id="time5"> s</p>
+    <button onclick="kinematic5()">Enter</button>
+
 </td>
 </table>
 <br>
+<h2>Projectile Motion</h2>
+
+<table>
+    <h3>Horizontal Range</h3>
+    <table style="display:inline">
+        <td style="font-size:16px">Formula: R = <td>
+            <div styl="float:left">
+                <div style="border-bottom:1px solid;font-size:14px;text-align:center">  <!--Numerator font 14 so that subscript o does not overlap with fraction bar-->
+                    <span class="nobr">v<span class="supsub">2<br>o</span></span>sin(2&Theta;)
+                </div> 
+                <div style = "font-size:16px;text-align:center;"> <!--Denominator-->
+                    g
+                </div>
+            </div>
+        </td>
+        </table>
+</table>
     <h2>Dynamics</h2>
     <h3>Newton's Second Law </h3>
     <p>Formula: F = ma</p>

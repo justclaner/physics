@@ -23,6 +23,8 @@ var vi = document.getElementById("iVelocity1").value;
 var a = document.getElementById("acceleration1").value;
 var t = document.getElementById("time2").value;
 
+if ((v - vi)*a < 0) {alert("Impossible situation. Change in velocity and acceleration never have opposite signs.");}
+
 if (v != "" && vi != "" && a != "" && t != "") {
     alert("Make sure exactly three fields are inputted for this.")
 } else if (v != "" && vi != "" && a != "") { //missing t
@@ -55,19 +57,20 @@ function kinematic2() {
     } else if (x != "" && xi != "" && a != "" && t != "") { //missing vi
         document.getElementById("iVelocity2").value = ((x - xi - (a*Math.pow(t,2)/2))/t).toPrecision(6);
     } else if (x != "" && xi != "" && vi != "" && t != "") { //missing a
-        document.getElementById("acceleration2").value = ((x - xi - (a*Math.pow(t,2)/2))*(2/Math.pow(t,2))).toPrecision(6);
+        document.getElementById("acceleration2").value = ((x - xi - (vi*t))*(2/Math.pow(t,2))).toPrecision(6);
     } else if (x != "" && xi != "" && vi != "" && a != "") { //missing t
 
         //quadratic formula
         var discriminant = Math.pow(vi,2) + 2*a*(x-xi);
-        var root1 = (-vi + Math.sqrt(discriminant))/a;
-        var root2 = (-vi - Math.sqrt(discriminant))/a;
+        if (discriminant < 0) {alert("Impossible situation (discriminant is negative). Check that all values and signs are correct.");}
+        var root1 = (vi + Math.sqrt(discriminant))/-a;
+        var root2 = (vi - Math.sqrt(discriminant))/-a;
         if (root1 >= 0) {
             document.getElementById("time3").value = (root1).toPrecision(6);
         } else {document.getElementById("time3").value = (root2).toPrecision(6);}
         
     } else {
-        alert("Make sure exactly four fields are inputted for this.")
+        alert("Make sure exactly four fields are inputted for this.");
     }
     }
 
@@ -82,9 +85,15 @@ function kinematic3() {
     if (v != "" && vi != "" && a != "" && x != "" && xi != "") {
         alert("Make sure exactly four fields are inputted for this.");
     } else if (vi != "" && a != "" && x != "" && xi != "") {//missing v
-        document.getElementById("velocity3").value = Math.sqrt(Math.pow(vi,2) + 2*a*(x - xi)).toPrecision(6);
+        var radicand = Math.pow(vi,2) + 2*a*(x - xi);
+        if (radicand < 0) {alert("Impossible Situation. Check that all values and signs are correct.")} else {
+        document.getElementById("velocity3").value = Math.sqrt(radicand).toPrecision(6);
+        }
     } else if (v != "" && a != "" && x != "" && xi != "") { //missing vi
+        var radicand = Math.pow(vi,2) - 2*a*(x - xi);
+        if (radicand < 0) {alert("Impossible Situation. Check that all values and signs are correct.")} else {
         document.getElementById("iVelocity3").value = Math.sqrt(Math.pow(v,2) - 2*a*(x - xi)).toPrecision(6);
+        }
     } else if (v != "" && vi != "" && x != "" && xi != "") { //missing a
         document.getElementById("acceleration3").value = ((Math.pow(v,2) - Math.pow(vi,2))/(2*(x - xi))).toPrecision(6);
     } else if (v != "" && vi != "" && a != "" && xi != "") { //missing x
@@ -95,6 +104,65 @@ function kinematic3() {
         alert("Make sure exactly four fields are inputted for this.");
     }
 }
+
+//unrelated acceleration
+function kinematic4() {
+    var x = document.getElementById("position3").value;
+    var xi = document.getElementById("iPosition3").value;
+    var v = document.getElementById("velocity4").value;
+    var vi = document.getElementById("iVelocity4").value;
+    var t = document.getElementById("time4").value;
+
+    if (x != "" && xi != "" && v != "" && vi != "" && t != "") {
+        alert("Make sure exactly four fields are inputted for this.");
+    } else if (xi != "" && v != "" && vi != "" && t != "") {//missing x
+        document.getElementById("position3").value = (xi + (v + vi)*t/2).toPrecision(6);
+    } else if (x != "" &&  v != "" && vi != "" && t != "") { //missing xi
+        document.getElementById("iPosition3").value = (x - (v + vi)*t/2).toPrecision(6);
+    } else if (x != "" && xi != "" && vi != "" && t != "") { //missing v
+        document.getElementById("velocity4").value = ((2/t)*(x - xi) - vi).toPrecision(6);
+    } else if (x != "" && xi != "" && v != "" && t != "") { //missing vi
+        document.getElementById("iVelocity4").value = ((2/t)*(x - xi) - v).toPrecision(6);
+    } else if (v != "" && vi != "" && a != "" && x != "") { //missing t
+        document.getElementById("time4").value = ((2/(v + vi))*(x - xi)).toPrecision(6);
+    } else {
+        alert("Make sure exactly four fields are inputted for this.");
+    }
+}
+
+//unrelated initial velocity
+function kinematic5() {
+    var x = document.getElementById("position4").value;
+    var xi = document.getElementById("iPosition4").value;
+    var v = document.getElementById("velocity5").value;
+    var a = document.getElementById("acceleration4").value;
+    var t = document.getElementById("time5").value;
+    
+    if (x != "" && xi != "" && v != "" && a != "" && t != "") {
+        alert("Make sure exactly four fields are inputted for this.")
+    } else if (xi != "" && v != "" && a != "" && t != "") { //missing x
+        document.getElementById("position4").value = (xi + (v*t) - (a*Math.pow(t,2)/2)).toPrecision(6);
+    } else if (x != "" && v != "" && a != "" && t != "") { //missing xi
+        document.getElementById("iPosition4").value = (x - (v*t) + (a*Math.pow(t,2)/2)).toPrecision(6);
+    } else if (x != "" && xi != "" && a != "" && t != "") { //missing v
+        document.getElementById("velocity5").value = ((x - xi + (a*Math.pow(t,2)/2))/t).toPrecision(6);
+    } else if (x != "" && xi != "" && v != "" && t != "") { //missing a
+        document.getElementById("acceleration4").value = ((x - xi - (v*t))*(-2/Math.pow(t,2))).toPrecision(6);
+    } else if (x != "" && xi != "" && v != "" && a != "") { //missing t
+
+        //quadratic formula
+        var discriminant = Math.pow(v,2) - 2*a*(x-xi);
+        if (discriminant < 0) {alert("Impossible situation (discriminant is negative). Check that all values and signs are correct.");}
+        var root1 = (v + Math.sqrt(discriminant))/a;
+        var root2 = (v - Math.sqrt(discriminant))/a;
+        if (root1 >= 0) {
+            document.getElementById("time5").value = (root1).toPrecision(6);
+        } else {document.getElementById("time5").value = (root2).toPrecision(6);}
+        
+    } else {
+        alert("Make sure exactly four fields are inputted for this.");
+    }
+    }
 
 function force1() {
     var f = document.getElementById("force1").value;
