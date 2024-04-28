@@ -4,7 +4,7 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 input {
-    width: 60px;
+    width: 80px;
 }
 
 body {
@@ -28,7 +28,7 @@ td.box {
 .supsub {
   display: inline-block;
   margin: -9em 0;
-  vertical-align: -0.35em;
+  vertical-align: -0.2em;
   line-height: 0.8em;
   font-size: 80%;
   text-align: left;

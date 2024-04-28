@@ -113,14 +113,15 @@
 </table>
 <br>
 <h2>Projectile Motion</h2>
-
+<p>The following are situations with the projectile initially at rest on flat ground.</p>
 <table>
+    <td class="box">
     <h3>Horizontal Range</h3>
     <table style="display:inline">
         <td style="font-size:16px">Formula: R = <td>
             <div styl="float:left">
-                <div style="border-bottom:1px solid;font-size:14px;text-align:center">  <!--Numerator font 14 so that subscript o does not overlap with fraction bar-->
-                    <span class="nobr">v<span class="supsub">2<br>o</span></span>sin(2&Theta;)
+                <div style="border-bottom:1px solid;font-size:16px;text-align:center;">  <!--Numerator-->
+                    <span class="nobr">v<span class="supsub">2<br>o</span></span>sin(2&theta;)
                 </div> 
                 <div style = "font-size:16px;text-align:center;"> <!--Denominator-->
                     g
@@ -128,7 +129,51 @@
             </div>
         </td>
         </table>
+        <p>Range: <input type="number" id="range"> m</p>
+        <p>Inital Velocity: <input type="number" id="iVelocity5"> m/s</p>
+        <p>Angle: <input type="number" id="angle1"> degrees above the horizontal</p>
+        <button onclick="horizontalRange()">Enter</button>
+        </td><td class="box">
+            <h3>Max Height</h3>
+    <table style="display:inline">
+        <td style="font-size:16px">Formula: H = <td>
+            <div styl="float:left">
+                <div style="border-bottom:1px solid;font-size:16px;text-align:center"> <!--Numerator-->
+                    <span class="nobr">v<span class="supsub">2<br>o</span></span>sin<sup>2</sup>(&theta;)
+                </div> 
+                <div style = "font-size:16px;text-align:center;"> <!--Denominator-->
+                    2g
+                </div>
+            </div>
+        </td>
+        </table>
+        <p>Max Height: <input type="number" id="maxHeight"> m</p>
+        <p>Inital Velocity: <input type="number" id="iVelocity6"> m/s</p>
+        <p>Angle: <input type="number" id="angle2"> degrees above the horizontal</p>
+        <button onclick="maxHeight()">Enter</button>
+        </td><td class="box">
+            <h3>Total Time</h3>
+            <table style="display:inline">
+                <td style="font-size:16px">Formula: t = <td>
+                    <div styl="float:left">
+                        <div style="border-bottom:1px solid;font-size:16px;text-align:center"> <!--Numerator-->
+                            2v<sub>o</sub>sin(&theta;)
+                        </div> 
+                        <div style = "font-size:16px;text-align:center;"> <!--Denominator-->
+                            g
+                        </div>
+                    </div>
+                </td>
+                </table>
+                <p>Total Time: <input type="number" id="totalTime" oninput="changeTime(this.value,0,0)"> s</p>
+                <p>t<sub>up</sub> <input type="number" id="timeUp" oninput="changeTime(0,this.value,0)"> s&emsp; 
+                    t<sub>down</sub> <input type="number" name="" id="timeDown" oninput="changeTime(0,0,this.value)"> s</p>
+                <p>Inital Velocity: <input type="number" id="iVelocity7"> m/s</p>
+                <p>Angle: <input type="number" id="angle3"> degrees above the horizontal</p>
+                <button onclick="totalTime()">Enter</button>
+        </td>
 </table>
+
     <h2>Dynamics</h2>
     <h3>Newton's Second Law </h3>
     <p>Formula: F = ma</p>

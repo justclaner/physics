@@ -1,3 +1,6 @@
+const g = 9.80665;
+const G = 6.67430*Math.pow(10,-11);
+
 function velocity1() {
     var v = document.getElementById("velocity1").value;
     var x = document.getElementById("displacement1").value;
@@ -164,13 +167,71 @@ function kinematic5() {
     }
     }
 
+function horizontalRange() {
+    var r = document.getElementById("range").value;
+    var vi = document.getElementById("iVelocity5").value;
+    var a = document.getElementById("angle1").value;
+
+    if (r != "" && vi != "" && a != "") {
+        alert("Make sure only two fields are inputted for this.");
+    } else if (vi != "" && a != "")  {
+        if (a <= 0 || a >= 180) {
+            document.getElementById("range").value = 0;
+        } else {
+        document.getElementById("range").value = (Math.pow(vi,2)*Math.sin(toRadians(2*a))/g).toPrecision(6);
+        }
+        
+    } else if (r != "" && a != "") {
+        if (a <= 0 || a >= 180) {
+            alert("Impossible situation. Given the angle inputted, the projectile should have a range of zero.")
+        } else {
+        document.getElementById("iVelocity5").value = (Math.sqrt(r*g/Math.sin(toRadians(2*a)))).toPrecision(6);
+        }
+    } else if (r != "" && vi != "") {
+        document.getElementById("angle1").value = (toDegrees(Math.asin(r*g/Math.pow(vi,2)))/2).toPrecision(6);
+    }
+}
+
+function maxHeight() {
+
+}
+
+function totalTime() {
+
+}
+
+function changeTime(tTotal, tUp, tDown) {
+    var timeTotal = document.getElementById("totalTime");
+    var timeUp = document.getElementById("timeUp");
+    var timeDown = document.getElementById("timeDown");
+
+    if (timeTotal )
+
+    if (digits(tTotal) > 5 || digits(tUp) > 5 || digits(tDown) > 5) {
+        sigfigs = 3;
+    } else {
+        sigfigs = 6;
+    }
+
+
+    if (tTotal != 0 && tTotal != "") {
+        timeUp.value = (tTotal/2).toPrecision(sigfigs);
+        timeDown.value = (tTotal/2).toPrecision(sigfigs);
+    } else if (tUp != 0 && tUp != "") {
+        timeTotal.value = (tUp*2).toPrecision(sigfigs);
+        timeDown.value = tUp;
+    } else if (tDown != 0 && tDown != ""){
+        timeTotal.value = (tDown*2).toPrecision(sigfigs);
+        timeUp.value = tDown;
+    }
+}
 function force1() {
     var f = document.getElementById("force1").value;
     var m = document.getElementById("mass1").value;
     var a = document.getElementById("acceleration7").value;
 
     if (f != "" && m != "" && a != "") {
-        alert("Make sure only two fields are inputted for this.")
+        alert("Make sure only two fields are inputted for this.");
     } else if (f != "" && m != "") {
         document.getElementById("acceleration7").value = (f/m).toPrecision(6);
     } else if (f != "" && a != "") {
@@ -182,4 +243,16 @@ function force1() {
     }
     console.log(f + " " + m + " " + a);
     console.log(f == "");
+}
+
+function toRadians(degrees) {
+    return degrees*Math.PI/180;
+}
+
+function toDegrees(radians) {
+    return radians*180/Math.PI;
+}
+
+function digits(number) {
+    return (number + '').replace('.', '').length;
 }
